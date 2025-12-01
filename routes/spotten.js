@@ -8,7 +8,6 @@ const ctrlspotten = require("../controler/spotten")
 routes.get("/", ctrlspotten.getVogels);
 routes.get("/:ID", ctrlspotten.getOneVogel);
 routes.get("/vogel",ctrlspotten.vogelGespot)
-// routes.put("/", ctrlspotten.AddVogel); // {soort}
 routes.put("/", ctrlspotten.vogelGespotPlus1); // {ID}
 
 // exporteer het router object

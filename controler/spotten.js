@@ -2,7 +2,7 @@ const vogels = require("../data/index")
 const getVogels = (req,res) => {
     let AllVogels = []
     vogels.forEach((vogel) => {
-        AllVogels.push(vogel.id,vogel.soort)
+        AllVogels.push({id:vogel.id,soort:vogel.soort})
         
     })
     res.send(AllVogels)
@@ -15,7 +15,7 @@ const getOneVogel = (req,res) => {
 }
 
 const vogelGespot = (req,res) => {
-    const aantalKeerGespot = 0
+    let aantalKeerGespot = 0
     vogels.forEach((vogel) => {
         if (vogel.aantalKeerGespot > aantalKeerGespot){
             aantalKeerGespot = vogel.aantalKeerGespot
@@ -24,7 +24,6 @@ const vogelGespot = (req,res) => {
     const gevondenVogel = vogels.find((vogel) => vogel.aantalKeerGespot == aantalKeerGespot)
     console.log(aantalKeerGespot);
     
-    res.send("gevondenVogel")
     res.json(gevondenVogel)
 }
 const vogelGespotPlus1 = (req,res) => {
